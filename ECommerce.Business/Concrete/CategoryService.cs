@@ -30,7 +30,10 @@ namespace ECommerce.Business.Concrete
         public void DeleteById(int id)
         {
             var cat = _categoryDal.GetList().Result.FirstOrDefault(x => x.CategoryId == id);
-            _categoryDal.Delete(cat);
+            if (cat != null)
+            {
+                _categoryDal.Delete(cat);
+            }
         }
 
         public async Task<List<Category>> GetAllAsync()

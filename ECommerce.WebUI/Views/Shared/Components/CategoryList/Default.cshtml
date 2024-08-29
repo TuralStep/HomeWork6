@@ -13,10 +13,8 @@
             </a>
             @if (Model.IsAdmin)
             {
-                <a class="btn btn-xs btn-danger"
-                   asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryId">
-                    X
-                </a>
+                <a asp-controller="Category" asp-action="Delete" asp-route-id="@item.CategoryId"
+                    class="btn btn-xs btn-danger">X</a>
             }
         </section>
     }
@@ -24,9 +22,8 @@
     {
         <section class="list-group-item">
             <form asp-controller="Category" asp-action="Add" method="post">
-                <input type="hidden" name="name" value="@Model.AddingCategory" />
-                <input type="text" placeholder="Category Name" asp-for="@Model.AddingCategory" />
-                <button type="submit" class="btn btn-xs btn-success">Add</button>
+                <input placeholder="Category Name" asp-for="@Model.AddingCategory" />
+                <button type="submit">Add</button>
             </form>
         </section>
     }
